@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário de 3 anos - Senhas Secretas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffe4e1;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff0f5;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            border: 2px solid #ff1493;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        input[type="text"], input[type="file"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .hidden {
+            display: none;
+        }
+        .hearts {
+            font-size: 1.5em;
+            color: #ff1493;
+            margin-top: 20px;
+        }
+        .photo-container {
+            margin-top: 20px;
+        }
+        .photo-container img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ff1493;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            input[type="text"], input[type="file"], button {
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aniversário de 3 anos - Senhas Secretas</h1>
+
+        <div class="question" id="question1">
+            <p>Onde foi nosso primeiro beijo? ❤️</p>
+            <input type="text" id="answer1">
+            <button onclick="checkAnswer('answer1', 'matriz', 'question1', 'question2')">Enviar</button>
+        </div>
+        
+        <div class="question hidden" id="question2">
+            <p>Quantas poesias colei nos postes no pedido de namoro? ❤️</p>
+            <input type="text" id="answer2">
+            <button onclick="checkAnswer('answer2', '7', 'question2', 'question3')">Enviar</button>
+        </div>
+        
+        <div class="question hidden" id="question3">
+            <p>Quais eram nossas idades quando nos conhecemos? ❤️</p>
+            <input type="text" id="answer3">
+            <button onclick="checkAnswer('answer3', '21 e 19', 'question3', 'question4')">Enviar</button>
+        </div>
+        
+        <div class="question hidden" id="question4">
+            <p>Qual a sua comida favorita? ❤️</p>
+            <input type="text" id="answer4">
+            <button onclick="checkAnswer('answer4', 'todas', 'question4', 'question5')">Enviar</button>
+        </div>
+        
+        <div class="question hidden" id="question5">
+            <p>Qual o nome do nosso futuro gato? ❤️</p>
+            <input type="text" id="answer5">
+            <button onclick="checkAnswer('answer5', 'trutru', 'question5', 'question6')">Enviar</button>
+        </div>
+        
+        <div class="question hidden" id="question6">
+            <p>Quais foram as três primeiras letras que eu te falei? ❤️</p>
+            <input type="text" id="answer6">
+            <button onclick="checkAnswer('answer6', 'uau', 'question6', 'finalMessage')">Enviar</button>
+        </div>
+        
+        <div class="hidden" id="finalMessage">
+            <h2>Parabéns! Você encontrou o presente.</h2>
+            <p><a href="URL_DO_SEU_PODCAST" target="_blank">Clique aqui para ouvir o podcast</a></p>
+            <div class="photo-container">
+                <p>Eu te amo, Daniela, para sempre, ouça sempre que precisar se lembrar o quanto eu te amo.</p>
+                <img id="photo" src="https://i.imgur.com/0Fhcjgg.jpeg" alt="Nossa Foto">
+            </div>
+        </div>
+
+        <p class="hearts">💖💖💖💖💖</p>
+    </div>
+
+    <script>
+        function checkAnswer(inputId, correctAnswer, currentQuestionId, nextQuestionId) {
+            const answer = document.getElementById(inputId).value.trim().toLowerCase();
+            if (answer === correctAnswer.toLowerCase()) {
+                document.getElementById(currentQuestionId).classList.add('hidden');
+                document.getElementById(nextQuestionId).classList.remove('hidden');
+            } else {
+                alert('Resposta incorreta! Tente novamente.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
